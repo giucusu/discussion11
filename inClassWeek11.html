@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>JavaScript Discussion</title>
 	<style>
-		p{
+		p {
 			background-color: #b3b3b3;
 			border: 3px solid #FFFFFF;
 			padding: 3%;
@@ -14,40 +15,52 @@
 	</style>
 
 	<script type="text/javascript">
-	function displayInformation () {
-		// Your code goes here. 
-		// Do not change any other code in this file
-		// All of the steps below must be achieved using JavaScript!
+		function displayInformation() {
+			// Your code goes here. 
+			// Do not change any other code in this file
+			// All of the steps below must be achieved using JavaScript!
 
-		// 1. Change the h1 element to your name.
+			// 1. Change the h1 element to your name.
 
-		// 2. Update the three span elements using ONLY JavaScript
+			// 2. Update the three span elements using ONLY JavaScript
+			document.querySelector("h1").innerHTML = "Giuliana Cusumano";
+			document.getElementById("URL").innerHTML = window.location.href;
+			document.getElementById("items").innerHTML = document.querySelectorAll("li").length;
+			document.getElementById("time").innerHTML = new Date().toLocaleString();
+		}
+		let copycount = 0;
 
-    }
+		function stylePage() {
 
-	function stylePage () {
+			// 3. Change the background color and margin for the entire page.
+			document.body.style.backgroundColor = "#FFD706";
+			document.body.style.margin = "0px 50px";
+		}
 
-		// 3. Change the background color and margin for the entire page.
+		// 4. If someone uses the keyboard shortcut to copy the words "University of Michigan" then add the words "Go Blue" to the final div.  
+		//    Each occurence should be on a separate line.  Don't use paragraphs. 
+		function copyFunction() {
+			document.querySelector("#cheer").innerHTML += "<span> Go Blue! </span>";
+			copycount = copycount + 1;
+			if (copycount % 2 === 1) {
+				document.querySelector("#cheer").style.backgroundColor = "blue";
+			} else {
+				document.querySelector("#cheer").style.backgroundColor = "yellow";
+			}
+		}
 
-	}
 
-    // 4. If someone uses the keyboard shortcut to copy the words "University of Michigan" then add the words "Go Blue" to the final div.  
-    //    Each occurence should be on a separate line.  Don't use paragraphs. 
-	function copyFunction(){
-
-	}
-
-	
-</script>
+	</script>
 
 </head>
+
 <body>
 	<h1>Your name goes here</h1>
 	<h2>Use JavaScript to display the following information :</h2>
 	<p>
-		URL of this page : <span id = "URL"></span><br/>
-		Number of list items on this page: <span id = "items"></span><br/>
-		Current date/time : <span id = "time"></span><br/>
+		URL of this page : <span id="URL"></span><br />
+		Number of list items on this page: <span id="items"></span><br />
+		Current date/time : <span id="time"></span><br />
 	</p>
 	<button type="button" onClick="displayInformation()">Display Information!</button>
 	<button type="button" onClick="stylePage()">Style the Page</button>
@@ -71,4 +84,5 @@
 	</div>
 
 </body>
+
 </html>
